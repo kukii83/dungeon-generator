@@ -116,7 +116,7 @@ These dungeons contain a guaranteed Hamiltonian path (along with optional random
    ```
 Explanation: The validator processes 7 rooms and 10 tunnels, successfully identifying at least one valid route (e.g., visiting all 7 rooms sequentially) without repeating any tunnels.
 
-Result: VALID
+Result: `VALID`
 
 **Valid Dungeon #2**
 ```text
@@ -138,9 +138,9 @@ Result: VALID
    ```
 Explanation: A denser dungeon with 9 rooms and 14 tunnels. Despite the higher connectivity and decoy routes, a valid single path visiting all 9 rooms exists.
 
-Result: VALID
+Result: `VALID`
 
-**Valid Dungeon #2**
+**Valid Dungeon #3**
 ```text
    9 9
    0 1
@@ -155,8 +155,68 @@ Result: VALID
    ```
 Explanation:  A sparser layout featuring 9 rooms and 9 tunnels. The DFS algorithm maps a valid traversal route across the sparse graph network.
 
-Result: VALID
+Result: `VALID`
 
+## Invalid Dungeons
+These dungeons lack a complete Hamiltonian path due to structural limitations (such as dead end bottlenecks or disconnected partitions).
+
+**Invalid Dungeon #1**
+```text
+   9 11
+   0 1
+   0 3
+   1 3
+   1 4
+   1 7
+   2 5
+   2 6
+   3 4
+   3 8
+   5 6
+   7 8
+   ```
+Explanation: With 9 rooms and 11 tunnels, structural bottlenecks or isolated dead ends prevent any single route from visiting every room precisely once.
+
+Result: `INVALID`
+
+**Invalid Dungeon #2**
+```text
+   9 10
+   0 3
+   0 6
+   0 8
+   1 5
+   2 5
+   3 4
+   3 6
+   3 7
+   4 8
+   6 7
+   ```
+Explanation: The validator evaluates the 9 rooms and 10 tunnels, determines that no continuous path can traverse all nodes without getting trapped or missing a room, and terminates the search.
+
+Result: `INVALID`
+
+**Invalid Dungeon #3**
+```text
+   9 13
+   0 7
+   1 2
+   1 4
+   1 5
+   1 7
+   1 8
+   2 4
+   2 7
+   2 8
+   3 7
+   4 7
+   4 8
+   6 7
+   ```
+Explanation:  Contains 9 rooms and 13 tunnels. The validator's DFS search exhausts all possible paths and discovers that a complete Hamiltonian path cannot be formed.
+
+Result: `INVALID`
 
 ---
 ## AI use:
