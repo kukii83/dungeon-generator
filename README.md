@@ -2,11 +2,11 @@
 
 Group 5 Members:
 
-- Maulana Anugra Putra/5025251159 (kukii83)
+- Maulana Anugra Putra / 5025251159 (kukii83)
 
-- I Gusti Agung Candra Nugraha/5025251169 (candranugraha576)
+- I Gusti Agung Candra Nugraha / 5025251169 (candranugraha576)
 
-- Hussein Mohammad Mahsun/5025251170 (TheDelightOFice)
+- Hussein Mohammad Mahsun / 5025251170 (TheDelightOFice)
 
 
 ---
@@ -97,6 +97,66 @@ So N and M (in this example, 9 and 8) being the number of rooms and tunnels, and
 
 ---
 # Test Case Explanations
+## Valid Dungeons
+These dungeons contain a guaranteed Hamiltonian path (along with optional random decoy tunnels). The validator successfully tracks a complete traversal route visiting every room exactly once.
+
+**Valid Dungeon #1**
+```text
+   7 10
+   0 4
+   0 5
+   1 2
+   1 5
+   1 6
+   2 4
+   3 6
+   4 5
+   4 6
+   5 6
+   ```
+Explanation: The validator processes 7 rooms and 10 tunnels, successfully identifying at least one valid route (e.g., visiting all 7 rooms sequentially) without repeating any tunnels.
+
+Result: VALID
+
+**Valid Dungeon #2**
+```text
+   9 14
+   0 4
+   0 8
+   1 3
+   1 7
+   2 3
+   2 5
+   2 8
+   3 5
+   3 7
+   4 5
+   4 6
+   4 7
+   5 7
+   6 8
+   ```
+Explanation: A denser dungeon with 9 rooms and 14 tunnels. Despite the higher connectivity and decoy routes, a valid single path visiting all 9 rooms exists.
+
+Result: VALID
+
+**Valid Dungeon #2**
+```text
+   9 9
+   0 1
+   0 8
+   1 6
+   1 7
+   2 4
+   2 7
+   3 5
+   4 8
+   5 6
+   ```
+Explanation:  A sparser layout featuring 9 rooms and 9 tunnels. The DFS algorithm maps a valid traversal route across the sparse graph network.
+
+Result: VALID
+
 
 ---
 ## AI use:
