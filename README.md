@@ -56,7 +56,8 @@ So N and M (in this example, 9 and 8) being the number of rooms and tunnels, and
 - Press Control + Z and Enter to end the input and show the output(valid or invalid)
 
 ---
-Test Case Explanations
+# Test Case Explanations
 
 ---
-AI use:
+## AI use:
+https://claude.ai/share/4a378b98-6d58-446a-9edd-43eda73580c1
