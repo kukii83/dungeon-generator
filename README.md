@@ -14,6 +14,46 @@ Intro
 ---
 # Dungeon Generator Algorithm
 
+## Explanation
+The generator is made to build the dungeon so that the validity is known in advance, instead of generating random graphs. 
+
+The generator has 2 modes:
+
+**Valid mode: plant a path, then add decoys**
+
+Take 5 rooms, [0, 1, 2, 3, 4].
+
+Shuffle them into a random order, say [3, 0, 4, 1, 2].
+Chain consecutive rooms: (3,0), (0,4), (4,1), (1,2). This guarantees the route 3 → 0 → 4 → 1 → 2 exists, which visits every room exactly once.
+Add decoys: pick a random number of extra tunnels (0 to n) from pairs not yet connected, for example (1,3) and (2,4).
+
+Extra tunnels can't remove the planted path, so the dungeon stays valid. They only create more possible routes and make the layout harder to guess. Different shuffles give different dungeons.
+
+**Invalid mode: three ways to break the rule**
+
+- Disconnected: Shuffle the rooms and split them into two groups, each with at least 2 rooms. Chain each group and add extra tunnels inside each group only. No tunnel ever crosses between the groups, so no route can reach both.
+
+- Star: Pick a hub room and at least 3 leaf rooms that connect only to the hub. Chain the hub with the remaining ordinary rooms so everything stays connected, and add extra tunnels only among the hub and ordinary rooms, never touching a leaf. This is invalid because in any path, only the two endpoints can be dead ends, and there are 3 or more dead ends.
+
+- Sparse: Go through the shuffled rooms, and attach each one to a random earlier room. This makes a random tree, which is connected with no loops. Then add 0 to 2 extra tunnels. This one is labeled unknown, because a random tree occasionally happens to be a straight line, which would be valid. The validator decides.
+
+## How to run:
+Open terminal and run the generator.py file with this command:
+
+   To generate a valid dungeon:
+   
+   ```
+   python generator.py --mode valid
+   ```
+
+   To generate an invalid dungeon:
+
+   ```
+   python generator.py --mode invalid
+   ```
+
+   *You could also add "--count (number)" to generate dungeons for as many as how you put the number. If you write --count 3, then it will instantly generate 3 dungeons instead of 1.*
+
 ---
 # Dungeon Validator Algorithm
 
