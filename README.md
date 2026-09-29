@@ -31,9 +31,23 @@ The validator determines whether a given dungeon configuration contains at least
  
 ## How to run:
 - From the output of generator.py, which would look something like this:
-<img width="565" height="54" alt="image" src="https://github.com/user-attachments/assets/907487cf-627e-4e4a-b50f-cd16d3893e8b" />
+```text
+   Dungeon #1  (type: valid, expected: valid, seed: 160246821)
+     Rooms   (9): [0, 1, 2, 3, 4, 5, 6, 7, 8]
+     Tunnels (8): [(0, 1), (0, 2), (1, 6), (2, 8), (3, 4), (3, 7), (4, 6), (5, 7)]
+   ```
 To something like this:
-<img width="43" height="178" alt="image" src="https://github.com/user-attachments/assets/cf8acbb6-fbab-40b2-9afd-b64035a2029e" />
+```text
+   9 8
+   0 1
+   0 2
+   1 6
+   2 8
+   3 4
+   3 7
+   4 6
+   5 7
+   ```
 So N and M (in this example, 9 and 8) being the number of rooms and tunnels, and the u v below are the edges
 - Run validator.py on your compiler
 - Paste in the formatted input into the terminal
