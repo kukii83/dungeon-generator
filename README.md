@@ -15,6 +15,7 @@ Intro
 ---
 ### Dungeon Validator Algorithm
 
+## Explanation
 The validator determines whether a given dungeon configuration contains at least one Hamiltonian Path.   
 - Algorithmic StrategyDepth-First Search (DFS) with Backtracking:
    - An adjacency list is constructed from undirected tunnel inputs.   
@@ -25,5 +26,35 @@ The validator determines whether a given dungeon configuration contains at least
 - Pruning and Optimization Heuristics:
   - Isolated Vertex Pruning: If any vertex has a degree of 0, the graph cannot be traversed, and the search terminates immediately with INVALID.
   - Degree-1 Endpoint Constraint: In any valid Hamiltonian path, internal rooms must have at least degree 2 (one entry tunnel and one exit tunnel). Therefore, rooms of degree 1 can only ever serve as the start or end of the path. If count(deg(v) = 1) > 2, the validator immediately flags the dungeon as INVALID without   traversing.
-  - Directed Search Roots: If degree-1 rooms exist, the search only initiates from those specific rooms rather than evaluating all n vertices.
+  - Directed Search Roots: If degree-1 rooms exist ($\le 2$), the search only initiates from those specific rooms rather than evaluating all n vertices.
   - Symmetry Deduplication:Symmetrical reversals ($A \to B \to C$ vs. $C \to B \to A$) represent the identical physical tunnel sequence on undirected edges. The validator filters reverses to output only unique traversal paths.
+ 
+## How to run:
+- From the output of generator.py, which would look something like this:
+  Dungeon #1  (type: valid, expected: valid, seed: 25919395)
+  Rooms   (7): [0, 1, 2, 3, 4, 5, 6]
+  Tunnels (10): [(0, 4), (0, 5), (1, 2), (1, 5), (1, 6), (2, 4), (3, 6), (4, 5), (4, 6), (5, 6)]
+
+  To something like this:
+  7 10
+  0 4
+  0 5
+  1 2
+  1 5
+  1 6
+  2 4
+  3 6
+  4 5
+  4 6
+  5 6
+  So N and M (in this example, 7 and 10) being the number of rooms and tunnels, and the u v below are the edges
+
+- Run validator.py on your compiler
+- Paste in the formatted input into the terminal
+- Press Control + Z and Enter to end the input and show the output(valid or invalid)
+
+---
+Test Case Explanations
+
+---
+AI use:
