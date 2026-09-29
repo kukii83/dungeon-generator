@@ -7,13 +7,15 @@ Group 5 Members:
 -I Gusti Agung Candra Nugraha/5025251169 (candranugraha576)
 
 -Hussein Mohammad Mahsun/5025251170 (TheDelightOFice)
+
+
 ---
 Intro
 ---
-### Dungeon Generator Algorithm
+# Dungeon Generator Algorithm
 
 ---
-### Dungeon Validator Algorithm
+# Dungeon Validator Algorithm
 
 ## Explanation
 The validator determines whether a given dungeon configuration contains at least one Hamiltonian Path.   
